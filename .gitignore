@@ -1,23 +1,24 @@
 # This is a comment
 # Ignore a specific file
 secret.txt
-
-# Ignore all files with a certain extension
-*.log
-
-# Ignore a specific folder
-node_modules/
-
-# Ignore files in a folder but keep one
-temp/*
-!temp/keep.txt
-
-# Ignore everything in the root .env file
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
 .env
+.env.*
+*.log
+.pytest_cache/
+*.sqlite3
 
-# Ignore all files in any directory named 'build'
-build/
-
-# Ignore OS-generated files
+# OS
 .DS_Store
 Thumbs.db
+
+# Node (if any)
+node_modules/
+dist/
+build/
