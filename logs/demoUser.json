@@ -1,0 +1,72 @@
+[
+  {
+    "timestamp": "2025-07-20T05:58:06.268736",
+    "message": "test",
+    "reply": "Echo: test"
+  },
+  {
+    "timestamp": "2025-07-20T06:02:34.450364",
+    "message": "test",
+    "reply": "Echo: test"
+  },
+  {
+    "timestamp": "2025-07-20T06:05:30.091889",
+    "message": "hello",
+    "reply": "Echo: hello"
+  },
+  {
+    "timestamp": "2025-07-20T06:53:36.150701",
+    "message": "test",
+    "reply": "\u26a0\ufe0f Error generating response."
+  },
+  {
+    "timestamp": "2025-07-20T07:18:09.262513",
+    "message": "test",
+    "reply": "\u26a0\ufe0f Error generating response."
+  },
+  {
+    "timestamp": "2025-07-20T07:23:39.402671",
+    "message": "test",
+    "reply": "\u26a0\ufe0f API Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+  },
+  {
+    "timestamp": "2025-07-20T07:30:47.187216",
+    "message": "test",
+    "reply": "\u26a0\ufe0f API Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+  },
+  {
+    "timestamp": "2025-07-20T07:32:40.555774",
+    "message": "test",
+    "reply": "\u26a0\ufe0f API Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-.... You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+  },
+  {
+    "timestamp": "2025-07-20T07:58:56.283952",
+    "message": "test",
+    "reply": "Test received! How can I assist you today?"
+  },
+  {
+    "timestamp": "2025-07-20T08:35:18.391399",
+    "message": "testing",
+    "reply": "It looks like you're testing the chat. How can I assist you today?"
+  },
+  {
+    "timestamp": "2025-07-20T09:09:15.653754",
+    "message": "testing",
+    "reply": "It looks like you're testing the system! How can I assist you today? If you have any questions or need help with something specific, feel free to ask!",
+    "meta": {
+      "company": "",
+      "values": "",
+      "tone": ""
+    }
+  },
+  {
+    "timestamp": "2025-07-20T09:12:12.779429",
+    "message": "testing",
+    "reply": "Hello! It looks like you're testing the system. How can I assist you today? If there's anything specific you need help with, feel free to let me know!",
+    "meta": {
+      "company": "",
+      "values": "",
+      "tone": ""
+    }
+  }
+]
