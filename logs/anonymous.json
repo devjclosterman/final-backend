@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2025-08-06T19:05:22.189108",
+    "message": "hello",
+    "reply": "Hello! How can I assist you today?",
+    "meta": {}
+  },
+  {
+    "timestamp": "2025-08-06T19:05:56.760288",
+    "message": "You work for Desert Forged?",
+    "reply": "Yes, I\u2019m here to assist you with any questions or information you need about Desert Forged! How can I help you today?",
+    "meta": {}
+  }
+]
