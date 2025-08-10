@@ -4,6 +4,7 @@ from fastapi.responses import RedirectResponse
 from dotenv import load_dotenv
 from openai import OpenAI
 import os, json, glob
+from fastapi import Response
 from datetime import datetime
 
 load_dotenv()
@@ -13,15 +14,19 @@ app = FastAPI()
 # CORS (widen while testing; tighten later)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://desertforgedai.com",
-        "https://www.desertforgedai.com",
-    ],
-    allow_methods=["GET", "POST", "OPTIONS"],
+    # while testing you can use "*" (since allow_credentials=False)
+    # allow_origins=["*"],
+    allow_origin_regex=r"^https://(www\.)?desertforgedai\.com$",
+    allow_methods=["*"],          # include GET/POST/OPTIONS/HEAD/…
     allow_headers=["*"],
     expose_headers=["*"],
     allow_credentials=False,
 )
+
+@app.options("/{rest_of_path:path}")
+def preflight(rest_of_path: str):
+    # 204 No Content is the usual preflight response
+    return Response(status_code=204)
 
 @app.get("/", include_in_schema=False)
 def home():
