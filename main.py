@@ -24,7 +24,21 @@ app.add_middleware(
     expose_headers=["*"],                      # optional
     allow_credentials=False,                   # keep False unless you really send cookies
 )
+
 client = OpenAI()  # <-- must be instantiated
+
+@app.get("/health")
+def health():
+    # Don’t log the key; just whether it exists
+    return {"ok": True, "has_openai_key": bool(os.getenv("OPENAI_API_KEY"))}
+
+def get_openai():
+    key = os.getenv("OPENAI_API_KEY")
+    if not key:
+        # Clear message for your logs
+        raise RuntimeError("OPENAI_API_KEY is missing")
+    return OpenAI(api_key=key)
+
 
 # 🧠 Main chat route
 @app.post("/client/update")
@@ -104,10 +118,6 @@ async def get_all_logs():
             continue
     return logs
 
-# ✅ Health check
-@app.get("/health")
-async def health():
-    return {"status": "ok"}
 
 # Support all common variants so we stop getting 404s
 @app.post("/client/update")
