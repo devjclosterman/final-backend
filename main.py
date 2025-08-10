@@ -27,17 +27,15 @@ app.add_middleware(
 
 client = OpenAI()  # <-- must be instantiated
 
-@app.get("/health")
-def health():
-    # Don’t log the key; just whether it exists
-    return {"ok": True, "has_openai_key": bool(os.getenv("OPENAI_API_KEY"))}
+from fastapi.responses import RedirectResponse
 
-def get_openai():
-    key = os.getenv("OPENAI_API_KEY")
-    if not key:
-        # Clear message for your logs
-        raise RuntimeError("OPENAI_API_KEY is missing")
-    return OpenAI(api_key=key)
+@app.get("/", include_in_schema=False)
+def home():
+    # either return a JSON banner:
+    # return {"ok": True, "service": "llama-backend", "routes": ["/health","/client/update","/docs"]}
+    # or redirect to docs:
+    return RedirectResponse(url="/docs")
+
 
 
 # 🧠 Main chat route
