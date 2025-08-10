@@ -128,3 +128,9 @@ async def client_update(req: Request):
     data = await req.json()
     # TODO: call your model here, return {"reply": "..."}
     return {"reply": f"echo: {data.get('prompt') or data.get('message')}"}
+
+
+# at bottom of main.py
+if __name__ == "__main__":
+    import os, uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", "10000")))
