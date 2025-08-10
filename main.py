@@ -11,18 +11,20 @@ load_dotenv()
 
 app = FastAPI()
 
-# 🌐 Enable CORS — restrict to your site in production
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://desertforgedai.com",
         "https://www.desertforgedai.com",
-        "http://localhost:5173",      # local dev
-        "http://desertforgedai.local" # local WP dev
     ],
-    allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
+    allow_methods=["GET", "POST", "OPTIONS"],  # OPTIONS is critical for preflight
+    allow_headers=["*"],                       # accept Content-Type, etc.
+    expose_headers=["*"],                      # optional
+    allow_credentials=False,                   # keep False unless you really send cookies
 )
+client = OpenAI()  # <-- must be instantiated
 
 # 🧠 Main chat route
 @app.post("/client/update")
@@ -106,3 +108,13 @@ async def get_all_logs():
 @app.get("/health")
 async def health():
     return {"status": "ok"}
+
+# Support all common variants so we stop getting 404s
+@app.post("/client/update")
+@app.post("/client/update/")
+@app.post("/api/client/update")
+@app.post("/api/client/update/")
+async def client_update(req: Request):
+    data = await req.json()
+    # TODO: call your model here, return {"reply": "..."}
+    return {"reply": f"echo: {data.get('prompt') or data.get('message')}"}
